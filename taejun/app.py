@@ -15,6 +15,9 @@ db = client.dbsparta
 def home():
     return render_template('index.html')
 
+@app.route('/rec')
+def rec_html():
+    return render_template('rec.html')
 
 @app.route("/guestbook", methods=["POST"])
 def guestbook_post():
