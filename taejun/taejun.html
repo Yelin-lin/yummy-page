@@ -236,31 +236,6 @@
         <h1>내 생애 최고의 맛집</h1>
         <!-- <button onclick="open_box()">맛집 등록</button> -->
     </div>
-    <div class="mypost" id="post-box">
-        <div class="form-floating mb-3">
-            <input id="url" type="email" class="form-control" placeholder="name@example.com">
-            <label>영화URL</label>
-        </div>
-        <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">별점</label>
-            <select class="form-select" id="star">
-                <option selected>-- 선택하기 --</option>
-                <option value="1">⭐</option>
-                <option value="2">⭐⭐</option>
-                <option value="3">⭐⭐⭐</option>
-                <option value="4">⭐⭐⭐⭐</option>
-                <option value="5">⭐⭐⭐⭐⭐</option>
-            </select>
-        </div>
-        <div class="form-floating">
-            <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
-            <label for="floatingTextarea2">코멘트</label>
-        </div>
-        <div class="mybtns">
-            <button onclick="posting()" type="button" class="btn btn-dark">기록하기</button>
-            <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
-        </div>
-    </div>
 
     <Container>
         <Row class="mypic">
@@ -318,106 +293,8 @@
                     <div class="card-footer bg-transparent border-success">Footer</div>
                 </div>
             </a>
-
-
-
         </Row>
     </Container>
-
-    <!-- <div class="card border-success mb-3" style="max-width: 18rem;">
-        <div class="card-header bg-transparent border-success">태준쓰 추천 맛집</div>
-        <div class="card-body text-success">
-            <h5 class="card-title">양보다 질</h5>
-            <p class="card-text">#벌크업 </p>
-        </div>
-        <div class="card-footer bg-transparent border-success">Footer</div>
-    </div> -->
-    <!-- <div class="card border-success mb-3" style="max-width: 18rem;">
-        <div class="card-header bg-transparent border-success">Header</div>
-        <div class="card-body text-success">
-            <h5 class="card-title">Success card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-        </div>
-        <div class="card-footer bg-transparent border-success">Footer</div>
-    </div>
-    <div class="card border-success mb-3" style="max-width: 18rem;">
-        <div class="card-header bg-transparent border-success">Header</div>
-        <div class="card-body text-success">
-            <h5 class="card-title">Success card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-        </div>
-        <div class="card-footer bg-transparent border-success">Footer</div>
-    </div>
-    <div class="card border-success mb-3" style="max-width: 18rem;">
-        <div class="card-header bg-transparent border-success">Header</div>
-        <div class="card-body text-success">
-            <h5 class="card-title">Success card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-        </div>
-        <div class="card-footer bg-transparent border-success">Footer</div>
-    </div> -->
-
-
-
-
-
-
-
-    <!-- <div class="mycards">
-        <div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA1MDZfMTgw%2FMDAxNjgzMzAzMTI2MTM2.YQr7s59zg9L1R_e8lutgkK4jxAQHj2AAT8YGgkMhLdog.4-SDWx_JT0vTfZn5Ut9Xqg1w0hVsWg_vv8spI4GJ7cIg.JPEG.dkfkddl74%2FIMG_1704.jpg&type=a340"
-                        class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">위치 들어갑니다</h5>
-                        <p class="card-text">추천메뉴가 들어갑니다.</p>
-                        <p>⭐⭐⭐</p>
-                        <p class="mycomment">나의 한줄 평을 씁니다</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA1MDVfMTA4%2FMDAxNjgzMjc4ODQxOTc0.Z12f-Drqp4dvtzh4si97q31vbZkZHse8GjwUJ1UgpRIg.CqJYJOZypcr5TqMKMfqoni2Db2vtyNXzZ3UOJIczxNMg.JPEG.hyeyin23%2FIMG_3220.jpg&type=a340"
-                        class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">위치 들어갑니다</h5>
-                        <p class="card-text">추천메뉴가 들어갑니다.</p>
-                        <p>⭐⭐⭐</p>
-                        <p class="mycomment">나의 한줄 평을 씁니다</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAyMjFfNzUg%2FMDAxNjc2OTUzNDk2OTcy.w_VNX7Ymix6aHTJ-WMc5mS7JMVBP76Ijtyh6YtHH8rEg.qSYsCGSgXPsQMpNF8hZlEmjgM_9soi2lQ_V9nJ6gOysg.JPEG.yeshk555%2F20230221%25A3%25DF125659.jpg&type=a340"
-                        class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">위치 들어갑니다</h5>
-                        <p class="card-text">추천메뉴가 들어갑니다.</p>
-                        <p>⭐⭐⭐</p>
-                        <p class="mycomment">나의 한줄 평을 씁니다</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA1MDZfODgg%2FMDAxNjgzMzMxNzc2MTcx.G-hciKC_BDNwiFw-Xjp097YkjOLBLWPb0bcCyoRJibMg.3MsNdM0gzDDjxILKO1ZjraIDtLrCkBMF0N0uE9YwQQYg.JPEG.springrain2233%2FIMG_3202.jpg&type=a340"
-                        class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">위치 들어갑니다</h5>
-                        <p class="card-text">추천메뉴가 들어갑니다.</p>
-                        <p>⭐⭐⭐</p>
-                        <p class="mycomment">나의 한줄 평을 씁니다</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </body>
 
 </html>
