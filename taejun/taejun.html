@@ -13,21 +13,48 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <title>나만의 맛집 리스트</title>
-    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <title>내 생애 최고의 맛집</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --background-color: #ffffff;
+            /* 기본 배경색 */
+            --text-color: #000000;
+            /* 기본 텍스트 색상 */
+        }
+
+        body {
+            background-color: var(--background-color);
+            /* 배경색 변수 적용 */
+            color: var(--text-color);
+            /* 텍스트 색상 변수 적용 */
+        }
+
+        /* 다크 모드 스타일 */
+        body.dark-mode {
+            --background-color: #000000;
+            /* 다크 모드 배경색 */
+            --text-color: #ffffff;
+            /* 다크 모드 텍스트 색상 */
+        }
+
         * {
-            font-family: 'Gowun Dodum', sans-serif;
+            font-family: 'Gamja Flower', cursive;
         }
 
         .mytitle {
             width: 100%;
-            height: 300px;
+            height: 330px;
 
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://png.pngtree.com/background/20210711/original/pngtree-food-seasoning-food-banner-picture-image_1105676.jpg');
-            background-position: top;
-            background-size: cover;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://thumbs.gfycat.com/PolishedFriendlyEland-size_restricted.gif');
+            background-position: center;
+            background-size: 680px;
 
             color: white;
 
@@ -37,75 +64,19 @@
             justify-content: center;
         }
 
-        .mytitle>button {
-            width: 200px;
-            height: 50px;
-
-            background-color: transparent;
-            color: white;
-
-            border-radius: 50px;
-            border: 1px solid white;
-
-            margin-top: 10px;
-        }
-
-        .mytitle>button:hover {
-            border: 2px solid white;
-        }
-
-        .mycomment {
-            color: gray;
-        }
-
-        .mycards {
-            margin: 20px auto 0px auto;
-            width: 95%;
-            max-width: 1200px;
-
-        }
-
-        .mypost {
-            width: 95%;
-            max-width: 500px;
-            margin: 20px auto 0px auto;
-            padding: 20px;
-            box-shadow: 0px 0px 3px 0px gray;
-
-            display: none;
-        }
-
-        .mybtns {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-
-            margin-top: 20px;
-        }
-
-        .mybtns>button {
-            margin-right: 10px;
-        }
-
-
-
         .mypic {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            margin: 50px auto 0px auto;
+            margin: 70px auto 0px auto;
         }
-
 
         .mypic1:hover {
 
             transition: transform 0.3s ease-in-out;
             transform: translateY(-20px);
         }
-
-
 
         .mypic2:hover {
 
@@ -114,15 +85,12 @@
 
         }
 
-
-
         .mypic3:hover {
 
             transition: transform 0.3s ease-in-out;
             transform: translateY(-20px);
 
         }
-
 
         .mypic4:hover {
 
@@ -132,11 +100,6 @@
         }
 
 
-        .mypic:not(:last-child) {
-            margin-right: 50px;
-            border-radius: 50%;
-            /* 사진 사이의 간격을 조정합니다. */
-        }
 
         /* 선택적으로, 모든 사진에 같은 크기를 지정할 수도 있습니다. */
         .mypic img {
@@ -145,7 +108,11 @@
             height: 300px;
             margin-right: 80px;
             border-radius: 50%;
-            margin-bottom: 40px;
+        }
+
+        .card {
+            margin-top: 30px;
+            color: black;
 
         }
 
@@ -168,66 +135,14 @@
             text-decoration: none;
             /* 밑줄 제거 */
         }
+
+        .dark {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
     </style>
-    <!-- <script>
-        $(document).ready(function () {
-            listing();
-        });
-
-        function listing() {
-            fetch('/movie').then(res => res.json()).then(data => {
-                let rows = data['result']
-                $('#cards-box').empty()
-                rows.forEach((a) => {
-                    let comment = a['comment']
-                    let title = a['title']
-                    let image = a['image']
-                    let desc = a['desc']
-                    let star = a['star']
-
-                    let star_repeat = '⭐'.repeat(star)
-
-                    let temp_html = `<div class="col">
-                                            <div class="card h-100">
-                                                <img src="${image}"
-                                                     class="card-img-top">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">${title}</h5>
-                                                    <p class="card-text">${desc}</p>
-                                                    <p>${star_repeat}</p>
-                                                    <p class="mycomment">${comment}</p>
-                                                </div>
-                                            </div>
-                                        </div>`
-
-                    $('#cards-box').append(temp_html)
-                })
-            })
-        }
-
-        function posting() {
-            let url = $('#url').val()
-            let comment = $('#comment').val()
-            let star = $('#star').val()
-
-            let formData = new FormData()
-            formData.append("url_give", url)
-            formData.append("comment_give", comment)
-            formData.append("star_give", star)
-
-            fetch('/movie', { method: "POST", body: formData }).then(res => res.json()).then(data => {
-                alert(data['msg'])
-                window.location.reload()
-            })
-        }
-
-        function open_box() {
-            $('#post-box').show()
-        }
-        function close_box() {
-            $('#post-box').hide()
-        }
-    </script> -->
 </head>
 
 <body>
@@ -235,65 +150,69 @@
         <h1>내 생애 최고의 맛집</h1>
         <!-- <button onclick="open_box()">맛집 등록</button> -->
     </div>
+    <div class="dark" onclick="toggleDarkMode()"><i class="fas fa-moon fa-lg" style="color: #ffffff;"></i></div>
 
-    <Container>
-        <Row class="mypic">
-            <a href="https://github.com/Baek-Taejun" class="mypic1">
-                <Col xs={6} md={4}>
-                <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
-                </Col>
-                <div class="card border-success mb-3" style="max-width: 18rem;">
-                    <div class="card-header bg-transparent border-success">태준쓰 추천 맛집</div>
-                    <div class="card-body text-success">
-                        <h5 class="card-title">양보다 질</h5>
-                        <p class="card-text">#벌크업</p>
+    <script class="dark">
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+    <div class="box01">
+        <Container>
+            <Row class="mypic">
+                <a href="https://github.com/Baek-Taejun" class="mypic1">
+                    <Col xs={6} md={4}>
+                    <Image class="myimage"
+                        src="https://avatars.githubusercontent.com/u/126327414?s=400&u=4709ce461cae2e77b454f0b0b2f222531024d2ec&v=4"
+                        roundedCircle />
+                    <div class="card" style="width: 19rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">팀원을 한 문장으로 소개합니다.</h5>
+                            <p class="card-text">팀원별 해시태그가 들어갑니다.
+                                #하이하이 #매운거시름 #일식잘알 #아무거나잘먹음 #5살때부터난혀천재 #주관적맛집
+                            </p>
+                        </div>
                     </div>
-                    <div class="card-footer bg-transparent border-success">Footer</div>
-                </div>
-            </a>
-            <a href="https://github.com/Baek-Taejun" class="mypic2">
-                <div class="col-xs-6 col-md-4">
-                    <img class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4"
-                        alt="Profile Image" />
-                </div>
-                <div class="card border-success mb-3" style="max-width: 18rem;">
-                    <div class="card-header bg-transparent border-success">태준쓰 추천 맛집</div>
-                    <div class="card-body text-success">
-                        <h5 class="card-title">양보다 질</h5>
-                        <p class="card-text">#벌크업</p>
+                </a>
+                <a href="https://github.com/Baek-Taejun" class="mypic2">
+                    <Col xs={6} md={4}>
+                    <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
+                    <div class="card" style="width: 19rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">팀원을 한 문장으로 소개합니다.</h5>
+                            <p class="card-text">팀원별 해시태그가 들어갑니다.
+                                #하이하이 #매운거시름 #일식잘알 #아무거나잘먹음 #5살때부터난혀천재 #주관적맛집
+                            </p>
+                        </div>
                     </div>
-                    <div class="card-footer bg-transparent border-success">Footer</div>
-                </div>
-            </a>
-
-            <a href="https://github.com/Baek-Taejun" class="mypic3">
-                <Col xs={6} md={4}>
-                <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
-                </Col>
-                <div class="card border-success mb-3" style="max-width: 18rem;">
-                    <div class="card-header bg-transparent border-success">태준쓰 추천 맛집</div>
-                    <div class="card-body text-success">
-                        <h5 class="card-title">양보다 질</h5>
-                        <p class="card-text">#벌크업</p>
+                </a>
+                <a href="https://github.com/Baek-Taejun" class="mypic3">
+                    <Col xs={6} md={4}>
+                    <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
+                    <div class="card" style="width: 19rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">팀원을 한 문장으로 소개합니다.</h5>
+                            <p class="card-text">팀원별 해시태그가 들어갑니다.
+                                #하이하이 #매운거시름 #일식잘알 #아무거나잘먹음 #5살때부터난혀천재 #주관적맛집
+                            </p>
+                        </div>
                     </div>
-                    <div class="card-footer bg-transparent border-success">Footer</div>
-                </div>
-            </a>
-            <a href="https://github.com/Baek-Taejun" class="mypic4">
-                <Col xs={6} md={4}>
-                <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
-                </Col>
-                <div class="card border-success mb-3" style="max-width: 18rem;">
-                    <div class="card-header bg-transparent border-success">태준쓰 추천 맛집</div>
-                    <div class="card-body text-success">
-                        <h5 class="card-title">양보다 질</h5>
-                        <p class="card-text">#벌크업</p>
+                </a>
+                <a href="https://github.com/Baek-Taejun" class="mypic4">
+                    <Col xs={6} md={4}>
+                    <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
+                    <div class="card" style="width: 19rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">팀원을 한 문장으로 소개합니다.</h5>
+                            <p class="card-text">팀원별 해시태그가 들어갑니다.
+                                #하이하이 #매운거시름 #일식잘알 #아무거나잘먹음 #5살때부터난혀천재 #주관적맛집
+                            </p>
+                        </div>
                     </div>
-                    <div class="card-footer bg-transparent border-success">Footer</div>
-                </div>
-            </a>
-        </Row>
-    </Container>
+                </a>
+            </Row>
+        </Container>
+    </div>
 </body>
 
 </html>
