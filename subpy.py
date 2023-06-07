@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('subpage.html')
 
 @app.route("/goodplace", methods=["POST"])
 def movie_post():
