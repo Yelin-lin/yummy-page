@@ -85,6 +85,7 @@
         .mybtns > button {
             margin-right: 10px;
         }
+        
     </style>
     <script>
         $(document).ready(function(){
@@ -93,21 +94,55 @@
 
         function listing() {
             fetch('/goodplace').then((res) => res.json()).then((data) => {
-            console.log(data)
-            alert(data['msg'])
+                let rows = data['result']
+                $('#cards-box').empty();
+                rows.forEach((a)=>{
+                    let comment = a['comment']
+                    let title = a['title']
+                    let location = a['location']
+                    let image = a['image']
+                    let url = a['url']
+                    let star = a['star']
+                    let hashtag = a['hashtags']
+
+                    let star_repeat = '⭐'.repeat(star)
+
+                    let temp_html = `        <div class="col">
+                                                <div class="card h-100">
+                                                    <img src="${image}"
+                                                        class="card-img-top">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">${title}</h5>
+                                                        <p class="card-location">${location}</p>
+                                                        <p class="card-url">${url}</p>
+                                                        <p>${star_repeat}</p>
+                                                        <p class="mycomment">${comment}</p>
+                                                        <p class="myhashtags">${hashtag}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    `
+
+                    $('#cards-box').append(temp_html)
+                })
             })
         }
 
         function posting() {
             let url = $('#url').val();
             let comment = $('#comment').val();
+            let star = $('#star').val();
+            let hashtags = $('#hashtags').val();
 
 			let formData = new FormData();
             formData.append("url_give", url);
             formData.append("comment_give", comment);
+            formData.append("star_give", star);
+            formData.append("hatags_give", hashtags);
 
             fetch('/goodplace', {method : "POST",body : formData}).then((res) => res.json()).then((data) => {
             alert(data['msg'])
+            window.location.reload()
             })
         }
 
@@ -130,10 +165,30 @@
         <input id="url" type="email" class="form-control" placeholder="name@example.com">
         <label>영화URL</label>
     </div>
+
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">별점</label>
+        <select class="form-select" id="star">
+            <option selected>-- 선택하기 --</option>
+            <option value="1">⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+        </select>
+    </div> 
+
+
     <div class="form-floating">
         <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
         <label for="floatingTextarea2">코멘트</label>
     </div>
+
+    <div class="form-floating">
+        <textarea id="hashtags" class="form-control" placeholder="해쉬태그로 맛집을 소개해보세요! \n #을 붙여주세요"></textarea>
+        <label for="floatingTextarea2">해쉬태그</label>
+    </div>
+
     <div class="mybtns">
         <button onclick="posting()" type="button" class="btn btn-dark">기록하기</button>
         <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
@@ -148,8 +203,10 @@
                 <div class="card-body">
                     <h5 class="card-title">영화 제목이 들어갑니다</h5>
                     <p class="card-location">여기에 위치</p>
+                    <p>⭐⭐⭐</p>
                     <p class="card-url">여기에 url</p>
                     <p class="mycomment">한줄평 들어감</p>
+                    <p class="myhashtags">여기에 해쉬태그 들어감</p>
                 </div>
             </div>
         </div>
