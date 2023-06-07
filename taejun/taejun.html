@@ -24,10 +24,10 @@
 
         .mytitle {
             width: 100%;
-            height: 350px;
+            height: 300px;
 
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://thumbs.gfycat.com/PolishedFriendlyEland-size_restricted.gif');
-            background-position: center;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://png.pngtree.com/background/20210711/original/pngtree-food-seasoning-food-banner-picture-image_1105676.jpg');
+            background-position: top;
             background-size: cover;
 
             color: white;
@@ -89,6 +89,8 @@
             margin-right: 10px;
         }
 
+
+
         .mypic {
             display: flex;
             flex-direction: row;
@@ -96,6 +98,40 @@
             justify-content: center;
             margin: 50px auto 0px auto;
         }
+
+
+        .mypic1:hover {
+
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-20px);
+        }
+
+
+
+        .mypic2:hover {
+
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-20px);
+
+        }
+
+
+
+        .mypic3:hover {
+
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-20px);
+
+        }
+
+
+        .mypic4:hover {
+
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-20px);
+
+        }
+
 
         .mypic:not(:last-child) {
             margin-right: 50px;
@@ -110,7 +146,28 @@
             height: 300px;
             margin-right: 80px;
             border-radius: 50%;
+            margin-bottom: 40px;
 
+        }
+
+        .mypic1 {
+            text-decoration: none;
+            /* 밑줄 제거 */
+        }
+
+        .mypic2 {
+            text-decoration: none;
+            /* 밑줄 제거 */
+        }
+
+        .mypic3 {
+            text-decoration: none;
+            /* 밑줄 제거 */
+        }
+
+        .mypic4 {
+            text-decoration: none;
+            /* 밑줄 제거 */
         }
     </style>
     <script>
@@ -207,7 +264,7 @@
 
     <Container>
         <Row class="mypic">
-            <div>
+            <a href="https://github.com/Baek-Taejun" class="mypic1">
                 <Col xs={6} md={4}>
                 <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
                 </Col>
@@ -215,12 +272,27 @@
                     <div class="card-header bg-transparent border-success">태준쓰 추천 맛집</div>
                     <div class="card-body text-success">
                         <h5 class="card-title">양보다 질</h5>
-                        <p class="card-text">#벌크업 </p>
+                        <p class="card-text">#벌크업</p>
                     </div>
                     <div class="card-footer bg-transparent border-success">Footer</div>
                 </div>
-            </div>
-            <div>
+            </a>
+            <a href="https://github.com/Baek-Taejun" class="mypic2">
+                <div class="col-xs-6 col-md-4">
+                    <img class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4"
+                        alt="Profile Image" />
+                </div>
+                <div class="card border-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header bg-transparent border-success">태준쓰 추천 맛집</div>
+                    <div class="card-body text-success">
+                        <h5 class="card-title">양보다 질</h5>
+                        <p class="card-text">#벌크업</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-success">Footer</div>
+                </div>
+            </a>
+
+            <a href="https://github.com/Baek-Taejun" class="mypic3">
                 <Col xs={6} md={4}>
                 <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
                 </Col>
@@ -228,12 +300,12 @@
                     <div class="card-header bg-transparent border-success">태준쓰 추천 맛집</div>
                     <div class="card-body text-success">
                         <h5 class="card-title">양보다 질</h5>
-                        <p class="card-text">#벌크업 </p>
+                        <p class="card-text">#벌크업</p>
                     </div>
                     <div class="card-footer bg-transparent border-success">Footer</div>
                 </div>
-            </div>
-            <div>
+            </a>
+            <a href="https://github.com/Baek-Taejun" class="mypic4">
                 <Col xs={6} md={4}>
                 <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
                 </Col>
@@ -241,24 +313,11 @@
                     <div class="card-header bg-transparent border-success">태준쓰 추천 맛집</div>
                     <div class="card-body text-success">
                         <h5 class="card-title">양보다 질</h5>
-                        <p class="card-text">#벌크업 </p>
+                        <p class="card-text">#벌크업</p>
                     </div>
                     <div class="card-footer bg-transparent border-success">Footer</div>
                 </div>
-            </div>
-            <div>
-                <Col xs={6} md={4}>
-                <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
-                </Col>
-                <div class="card border-success mb-3" style="max-width: 18rem;">
-                    <div class="card-header bg-transparent border-success">태준쓰 추천 맛집</div>
-                    <div class="card-body text-success">
-                        <h5 class="card-title">양보다 질</h5>
-                        <p class="card-text">#벌크업 </p>
-                    </div>
-                    <div class="card-footer bg-transparent border-success">Footer</div>
-                </div>
-            </div>
+            </a>
 
 
 
