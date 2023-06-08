@@ -38,6 +38,10 @@
             justify-content: center;
         }
 
+        .mytitle > h1 {
+            font-size: 60px;
+        }
+
         .mypic {
             display: flex;
             flex-direction: row;
@@ -47,36 +51,32 @@
         }
 
         .mypic1:hover {
-
             transition: transform 0.3s ease-in-out;
             transform: translateY(-20px);
         }
 
         .mypic2:hover {
-
             transition: transform 0.3s ease-in-out;
             transform: translateY(-20px);
 
         }
 
         .mypic3:hover {
-
             transition: transform 0.3s ease-in-out;
             transform: translateY(-20px);
 
         }
 
         .mypic4:hover {
-
             transition: transform 0.3s ease-in-out;
             transform: translateY(-20px);
 
         }
 
-        .mypic:not(:last-child) {
-            margin-right: 50px;
-            border-radius: 50%;
-            /* 사진 사이의 간격을 조정합니다. */
+        .mypic5:hover {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-20px);
+
         }
 
         /* 선택적으로, 모든 사진에 같은 크기를 지정할 수도 있습니다. */
@@ -84,7 +84,7 @@
             width: 300px;
             /* 원하는 크기로 조정합니다. */
             height: 300px;
-            margin-right: 80px;
+            margin-right: 50px;
             border-radius: 50%;
         }
 
@@ -113,6 +113,12 @@
             text-decoration: none;
             /* 밑줄 제거 */
         }
+
+        .mypic5 {
+            text-decoration: none;
+            /* 밑줄 제거 */
+        }
+
     </style>
 </head>
 
@@ -126,7 +132,7 @@
             <Row class="mypic">
                 <a href="https://github.com/Baek-Taejun" class="mypic1">
                     <Col xs={6} md={4}>
-                    <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
+                    <Image class="myimage" src="https://images.christiandaily.co.kr/data/images/full/69101/masatsugu-ohashi.jpg?w=600" roundedCircle />
                     <div class="card" style="width: 19rem;">
                         <div class="card-body">
                             <h5 class="card-title">팀원을 한 문장으로 소개합니다.</h5>
@@ -138,7 +144,7 @@
                 </a>
                 <a href="https://github.com/Baek-Taejun" class="mypic2">
                     <Col xs={6} md={4}>
-                    <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
+                    <Image class="myimage" src="https://i1.sndcdn.com/avatars-fliYYKMbwCY9dusM-8ZvJEg-t500x500.jpg" roundedCircle />
                     <div class="card" style="width: 19rem;">
                         <div class="card-body">
                             <h5 class="card-title">팀원을 한 문장으로 소개합니다.</h5>
@@ -161,6 +167,18 @@
                     </div>
                 </a>
                 <a href="https://github.com/Baek-Taejun" class="mypic4">
+                    <Col xs={6} md={4}>
+                    <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
+                    <div class="card" style="width: 19rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">팀원을 한 문장으로 소개합니다.</h5>
+                            <p class="card-text">팀원별 해시태그가 들어갑니다.
+                                #하이하이 #매운거시름 #일식잘알 #아무거나잘먹음 #5살때부터난혀천재 #주관적맛집
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://github.com/Baek-Taejun" class="mypic5">
                     <Col xs={6} md={4}>
                     <Image class="myimage" src="https://avatars.githubusercontent.com/u/126327414?v=4" roundedCircle />
                     <div class="card" style="width: 19rem;">
