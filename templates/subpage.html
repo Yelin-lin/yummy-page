@@ -173,7 +173,7 @@
             formData.append("url_give", url);
             formData.append("comment_give", comment);
             formData.append("star_give", star);
-            formData.append("hatags_give", hashtags);
+            formData.append("hashtags_give", hashtags);
 
             fetch('/goodplace', {method : "POST",body : formData}).then((res) => res.json()).then((data) => {
             alert(data['msg'])
