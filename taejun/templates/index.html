@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,10 +21,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
 
     <style>
+        * {
+            font-family: 'Gamja Flower', cursive;
+        }
+
+        /*다크모드 --> 화이트모드 변환*/
         :root {
-            --background-color: #000000;
+            --background-color: #ffffff;
             /* 기본 배경색 */
-            --text-color: #ffffff;
+            --text-color: #000000;
             /* 기본 텍스트 색상 */
         }
 
@@ -38,14 +42,10 @@
 
         /* 다크 모드 스타일 */
         body.dark-mode {
-            --background-color: #ffffff;
+            --background-color: #000000;
             /* 다크 모드 배경색 */
-            --text-color: #000000;
+            --text-color: #ffffff;
             /* 다크 모드 텍스트 색상 */
-        }
-
-        * {
-            font-family: 'Gamja Flower', cursive;
         }
 
         .mytitle {
@@ -64,6 +64,11 @@
             justify-content: center;
         }
 
+        /*타이틀 폰트 크기 바꿈*/
+        .mytitle>h1 {
+            font-size: 60px;
+        }
+
         .mypic {
             display: flex;
             flex-direction: row;
@@ -72,53 +77,46 @@
             margin: 70px auto 0px auto;
         }
 
+        /*30에서 20으로 바꿈*/
         .mypic1:hover {
-
             transition: transform 0.3s ease-in-out;
-            transform: translateY(-30px);
+            transform: translateY(-20px);
         }
 
         .mypic2:hover {
-
             transition: transform 0.3s ease-in-out;
-            transform: translateY(-30px);
+            transform: translateY(-20px);
 
         }
 
         .mypic3:hover {
-
             transition: transform 0.3s ease-in-out;
-            transform: translateY(-30px);
+            transform: translateY(-20px);
 
         }
 
         .mypic4:hover {
-
             transition: transform 0.3s ease-in-out;
-            transform: translateY(-30px);
+            transform: translateY(-20px);
 
         }
 
-
-
         .mypic img {
-            width: 305px;
+            width: 300px;
             height: 300px;
             margin-right: 30px;
-            /* border-radius: 20px; */
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
         }
 
         .card {
-            margin-top: 0px;
-            color: black;
             border-bottom-left-radius: 20px;
             border-bottom-right-radius: 20px;
-
+            color: black;
 
         }
 
+        /*밑줄 제거 너무 많아서 한 개만 남기고 삭제함*/
         .mypic1 {
             text-decoration: none;
             /* 밑줄 제거 */
@@ -126,27 +124,25 @@
 
         .mypic2 {
             text-decoration: none;
-            /* 밑줄 제거 */
         }
 
         .mypic3 {
             text-decoration: none;
-            /* 밑줄 제거 */
         }
 
         .mypic4 {
             text-decoration: none;
-            /* 밑줄 제거 */
         }
 
+        /*위치 조금 수정*/
         .dark {
             position: fixed;
             top: 25px;
-            right: 20px;
+            right: 15px;
             z-index: 9999;
         }
 
-
+        /*패딩으로 안쪽 간격 넓힘, 폰트 추가*/
         .rec_button {
             position: fixed;
             top: 18px;
@@ -155,6 +151,13 @@
             border-radius: 50%;
             font-size: 20px;
             border-radius: 50px;
+            padding: 0px 10px 0px 10px;
+            font-family: 'Gamja Flower', cursive;
+        }
+
+        /*호버 효과 추가함*/
+        .rec_button:hover {
+            border: 2px solid white;
             font-family: 'Gamja Flower', cursive;
             background-color: #3f3f3f;
             color: #ffffff
@@ -174,6 +177,7 @@
         }
     </script>
 
+    <button onclick="window.location.href='/rec2'" class="rec_button">나만의 맛집 남기기</button>
 
     <button onclick="window.location.href='/rec'" class="rec_button" style="border: 2px solid white;">내가 맛집 남기기</button>
 
