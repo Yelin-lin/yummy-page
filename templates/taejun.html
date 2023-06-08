@@ -128,7 +128,7 @@
         });
 
         function listing() {
-            fetch('/taejunplace').then((res) => res.json()).then((data) => {
+            fetch('/taejun2').then((res) => res.json()).then((data) => {
                 let rows = data['result']
                 $('#cards-box').empty();
                 rows.forEach((a) => {
@@ -156,8 +156,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                    `
-
+                                        </div>
+                                    </div>`
                     $('#cards-box').append(temp_html)
                 })
             })
@@ -177,7 +177,7 @@
             formData.append("hashtags_give", hashtags);
             formData.append("imgurl_give", img_url);
 
-            fetch('/goodplace', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+            fetch('/taejun2', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
                 alert(data['msg'])
                 window.location.reload()
             })
@@ -242,7 +242,7 @@
             <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
         </div>
     </div>
-    <!-- <div class="mycards">
+    <div class="mycards">
         <div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box">
             <div class="col">
                 <div class="card h-100">
@@ -259,7 +259,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 </body>
 
 </html>
