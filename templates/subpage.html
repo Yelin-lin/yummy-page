@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
     <title>스파르타 피디아</title>
 
@@ -30,7 +30,7 @@
             width: 100%;
             height: auto;
 
-            padding: 70px 0px; 
+            padding: 70px 0px;
 
             background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.sk5.co.kr/img_src/s600/b261//b2610007.jpg');
             background-position: center;
@@ -44,11 +44,11 @@
             justify-content: center;
         }
 
-        .mytitle > button {
+        .mytitle>button {
             width: 200px;
             height: 50px;
 
-            background-color: rgba(0,0,0,0.2);
+            background-color: rgba(0, 0, 0, 0.2);
             color: white;
 
             border-radius: 50px;
@@ -57,7 +57,7 @@
             margin-top: 10px;
         }
 
-        .mytitle > button:hover {
+        .mytitle>button:hover {
             border: 2px solid white;
             background-color: white;
             color: black;
@@ -95,15 +95,16 @@
 
             margin-top: 20px;
         }
-        .mybtns > button {
+
+        .mybtns>button {
             margin-right: 10px;
         }
 
         /* 수정부분 */
-        .title_img{
+        .title_img {
             width: 80px;
             height: 80px;
-            
+
             border-radius: 50%;
             border: 2px solid white;
 
@@ -124,15 +125,15 @@
         
     </style>
     <script>
-        $(document).ready(function(){
-          listing();
+        $(document).ready(function () {
+            listing();
         });
 
         function listing() {
             fetch('/goodplace').then((res) => res.json()).then((data) => {
                 let rows = data['result']
                 $('#cards-box').empty();
-                rows.forEach((a)=>{
+                rows.forEach((a) => {
                     let comment = a['comment']
                     let title = a['title']
                     let location = a['location']
@@ -157,8 +158,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                    `
-
+                                        </div>
+                                    </div>`
                     $('#cards-box').append(temp_html)
                 })
             })
@@ -171,23 +172,23 @@
             let hashtags = $('#hashtags').val();
             let img_url = $('#img_url').val();
 
-			let formData = new FormData();
+            let formData = new FormData();
             formData.append("url_give", url);
             formData.append("comment_give", comment);
             formData.append("star_give", star);
             formData.append("hashtags_give", hashtags);
             formData.append("imgurl_give", img_url);
 
-            fetch('/goodplace', {method : "POST",body : formData}).then((res) => res.json()).then((data) => {
-            alert(data['msg'])
-            window.location.reload()
+            fetch('/goodplace', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+                alert(data['msg'])
+                window.location.reload()
             })
         }
 
-        function open_box(){
+        function open_box() {
             $('#post-box').show()
         }
-        function close_box(){
+        function close_box() {
             $('#post-box').hide()
         }
 
@@ -211,34 +212,32 @@
         <label >맛집 이미지 URL</label>
     </div>
 
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">접근성</label>
+            <select class="form-select" id="star">
+                <option selected>-- 별점으로 표시! --</option>
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
+            </select>
+        </div>
 
+        <div class="form-floating">
+            <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
+            <label for="floatingTextarea2">한 줄 평가</label>
+        </div>
 
-    <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">접근성</label>
-        <select class="form-select" id="star">
-            <option selected>-- 별점으로 표시! --</option>
-            <option value="1">⭐</option>
-            <option value="2">⭐⭐</option>
-            <option value="3">⭐⭐⭐</option>
-            <option value="4">⭐⭐⭐⭐</option>
-            <option value="5">⭐⭐⭐⭐⭐</option>
-        </select>
-    </div> 
+        <div class="form-floating">
+            <textarea id="hashtags" class="form-control" placeholder="해쉬태그로 맛집을 소개해보세요! \n #을 붙여주세요"></textarea>
+            <label for="floatingTextarea2">해시태그</label>
+        </div>
 
-
-    <div class="form-floating">
-        <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
-        <label for="floatingTextarea2">한 줄 평가</label>
-    </div>
-
-    <div class="form-floating">
-        <textarea id="hashtags" class="form-control" placeholder="해쉬태그로 맛집을 소개해보세요! \n #을 붙여주세요"></textarea>
-        <label for="floatingTextarea2">해시태그</label>
-    </div>
-
-    <div class="mybtns">
-        <button onclick="posting()" type="button" class="btn btn-dark">기록하기</button>
-        <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+        <div class="mybtns">
+            <button onclick="posting()" type="button" class="btn btn-dark">기록하기</button>
+            <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+        </div>
     </div>
 </div>
 <div class="mycards">
@@ -258,7 +257,6 @@
             </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>
