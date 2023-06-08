@@ -142,121 +142,120 @@ def movie_get2():
     all_taejunyummy = list(db.taejunyummy.find({},{'_id':False}))
     return jsonify({'result':all_taejunyummy})
 
-
 # #명빈 route
 
 
-# @app.route("/myeongbin", methods=["POST"])
-# def movie_post3():
-#     url_receive = request.form['url_give']
-#     comment_receive = request.form['comment_give']
-#     star_receive = request.form['star_give']
-#     hashtags_receive = request.form['hashtags_give']
-#     imgurl_receive = request.form['imgurl_give']
+@app.route("/myeongbin", methods=["POST"])
+def movie_post3():
+    url_receive = request.form['url_give']
+    comment_receive = request.form['comment_give']
+    star_receive = request.form['star_give']
+    hashtags_receive = request.form['hashtags_give']
+    imgurl_receive = request.form['imgurl_give']
 
-#     headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
-#     data = requests.get(url_receive, headers=headers)
+    headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
+    data = requests.get(url_receive, headers=headers)
     
-#     soup = BeautifulSoup(data.text, 'html.parser')
+    soup = BeautifulSoup(data.text, 'html.parser')
 
-#     ogtitle = soup.select_one('meta[property="og:title"]')['content']
-#     oglocation = soup.select_one('meta[property="og:description"]')['content']
-#     ogurl = soup.select_one('meta[property="og:url"]')['content']
+    ogtitle = soup.select_one('meta[property="og:title"]')['content']
+    oglocation = soup.select_one('meta[property="og:description"]')['content']
+    ogurl = soup.select_one('meta[property="og:url"]')['content']
 
-#     doc = {
-#         'title':ogtitle,
-#         'location':oglocation,
-#         'image':imgurl_receive,
-#         'url': ogurl,
-#         'comment': comment_receive,
-#         'star':star_receive,
-#         'hashtags': hashtags_receive,
-#     }
+    doc = {
+        'title':ogtitle,
+        'location':oglocation,
+        'image':imgurl_receive,
+        'url': ogurl,
+        'comment': comment_receive,
+        'star':star_receive,
+        'hashtags': hashtags_receive,
+    }
 
-#     db.myeongbinyummy.insert_one(doc)
+    db.myeongbinyummy.insert_one(doc)
 
-#     return jsonify({'msg':'저장완료!'})
+    return jsonify({'msg':'저장완료!'})
 
-# @app.route("/myeongbin", methods=["GET"])
-# def movie_get():
-#     all_myeongbinyummy = list(db.myeongbinyummy.find({},{'_id':False}))
-#     return jsonify({'result':all_myeongbinyummy})
+@app.route("/myeongbin", methods=["GET"])
+def movie_get3():
+    all_myeongbinyummy = list(db.myeongbinyummy.find({},{'_id':False}))
+    return jsonify({'result':all_myeongbinyummy})
 
-# #지아 route
+#지아 route
 
-# @app.route("/jia", methods=["POST"])
-# def movie_post4():
-#     url_receive = request.form['url_give']
-#     comment_receive = request.form['comment_give']
-#     star_receive = request.form['star_give']
-#     hashtags_receive = request.form['hashtags_give']
-#     imgurl_receive = request.form['imgurl_give']
+@app.route("/jia", methods=["POST"])
+def movie_post4():
+    url_receive = request.form['url_give']
+    comment_receive = request.form['comment_give']
+    star_receive = request.form['star_give']
+    hashtags_receive = request.form['hashtags_give']
+    imgurl_receive = request.form['imgurl_give']
 
-#     headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
-#     data = requests.get(url_receive, headers=headers)
+    headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
+    data = requests.get(url_receive, headers=headers)
     
-#     soup = BeautifulSoup(data.text, 'html.parser')
+    soup = BeautifulSoup(data.text, 'html.parser')
 
-#     ogtitle = soup.select_one('meta[property="og:title"]')['content']
-#     oglocation = soup.select_one('meta[property="og:description"]')['content']
-#     ogurl = soup.select_one('meta[property="og:url"]')['content']
+    ogtitle = soup.select_one('meta[property="og:title"]')['content']
+    oglocation = soup.select_one('meta[property="og:description"]')['content']
+    ogurl = soup.select_one('meta[property="og:url"]')['content']
 
-#     doc = {
-#         'title':ogtitle,
-#         'location':oglocation,
-#         'image':imgurl_receive,
-#         'url': ogurl,
-#         'comment': comment_receive,
-#         'star':star_receive,
-#         'hashtags': hashtags_receive,
-#     }
+    doc = {
+        'title':ogtitle,
+        'location':oglocation,
+        'image':imgurl_receive,
+        'url': ogurl,
+        'comment': comment_receive,
+        'star':star_receive,
+        'hashtags': hashtags_receive,
+    }
 
-#     db.jiayummy.insert_one(doc)
+    db.jiayummy.insert_one(doc)
 
-#     return jsonify({'msg':'저장완료!'})
+    return jsonify({'msg':'저장완료!'})
 
-# @app.route("/jia", methods=["GET"])
-# def movie_get():
-#     all_jia = list(db.jiayummy.find({},{'_id':False}))
-#     return jsonify({'result':all_jia})
+@app.route("/jia", methods=["GET"])
+def movie_get4():
+    all_jia = list(db.jiayummy.find({},{'_id':False}))
+    return jsonify({'result':all_jia})
 
-# #소연 route
+#소연 route
 
-# @app.route("/soyeon", methods=["POST"])
-# def movie_post5():
-#     url_receive = request.form['url_give']
-#     comment_receive = request.form['comment_give']
-#     star_receive = request.form['star_give']
-#     hashtags_receive = request.form['hashtags_give']
-#     imgurl_receive = request.form['imgurl_give']
+@app.route("/soyeon", methods=["POST"])
+def movie_post5():
+    url_receive = request.form['url_give']
+    comment_receive = request.form['comment_give']
+    star_receive = request.form['star_give']
+    hashtags_receive = request.form['hashtags_give']
+    imgurl_receive = request.form['imgurl_give']
 
-#     headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
-#     data = requests.get(url_receive, headers=headers)
+    headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
+    data = requests.get(url_receive, headers=headers)
     
-#     soup = BeautifulSoup(data.text, 'html.parser')
+    soup = BeautifulSoup(data.text, 'html.parser')
 
-#     ogtitle = soup.select_one('meta[property="og:title"]')['content']
-#     oglocation = soup.select_one('meta[property="og:description"]')['content']
-#     ogurl = soup.select_one('meta[property="og:url"]')['content']
+    ogtitle = soup.select_one('meta[property="og:title"]')['content']
+    oglocation = soup.select_one('meta[property="og:description"]')['content']
+    ogurl = soup.select_one('meta[property="og:url"]')['content']
 
-#     doc = {
-#         'title':ogtitle,
-#         'location':oglocation,
-#         'image':imgurl_receive,
-#         'url': ogurl,
-#         'comment': comment_receive,
-#         'star':star_receive,
-#         'hashtags': hashtags_receive,
-#     }
+    doc = {
+        'title':ogtitle,
+        'location':oglocation,
+        'image':imgurl_receive,
+        'url': ogurl,
+        'comment': comment_receive,
+        'star':star_receive,
+        'hashtags': hashtags_receive,
+    }
 
-#     db.Leesupiayummy.insert_one(doc)
+    db.Leesupiayummy.insert_one(doc)
 
-#     return jsonify({'msg':'저장완료!'})
+    return jsonify({'msg':'저장완료!'})
 
-# @app.route("/soyeon", methods=["GET"])
-# def movie_get():
-#     all_Leesupia = list(db.Leesupiayummy.find({},{'_id':False}))
-#     return jsonify({'result':all_Leesupia})
+@app.route("/soyeon", methods=["GET"])
+def movie_get5():
+    all_Leesupia = list(db.Leesupiayummy.find({},{'_id':False}))
+    return jsonify({'result':all_Leesupia})
 
 
 #마무리
