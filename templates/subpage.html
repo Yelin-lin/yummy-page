@@ -16,16 +16,23 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
+    <!-- 링크 추가됨 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
+
     <style>
         * {
             font-family: 'Gowun Dodum', sans-serif;
         }
 
+        /* 수정 mytitle */
         .mytitle {
             width: 100%;
-            height: 250px;
+            height: auto;
 
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
+            padding: 70px 0px; 
+
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.sk5.co.kr/img_src/s600/b261//b2610007.jpg');
             background-position: center;
             background-size: cover;
 
@@ -41,17 +48,20 @@
             width: 200px;
             height: 50px;
 
-            background-color: transparent;
+            background-color: rgba(0,0,0,0.2);
             color: white;
 
             border-radius: 50px;
-            border: 1px solid white;
+            border: 2px solid white;
 
             margin-top: 10px;
         }
 
         .mytitle > button:hover {
             border: 2px solid white;
+            background-color: white;
+            color: black;
+            font-weight: 700;
         }
 
         .mycomment {
@@ -64,6 +74,7 @@
             max-width: 1200px;
         }
 
+        /* 둥글게 추가 */
         .mypost {
             width: 95%;
             max-width: 500px;
@@ -72,6 +83,8 @@
             box-shadow: 0px 0px 3px 0px gray;
 
             display: none;
+
+            border-radius: 15px;
         }
 
         .mybtns {
@@ -85,6 +98,28 @@
         .mybtns > button {
             margin-right: 10px;
         }
+
+        /* 수정부분 */
+        .title_img{
+            width: 80px;
+            height: 80px;
+            
+            border-radius: 50%;
+            border: 2px solid white;
+
+            margin-bottom: 20px;
+        }
+
+        .house{
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 78;
+        }
+
         
     </style>
     <script>
@@ -152,24 +187,29 @@
         function close_box(){
             $('#post-box').hide()
         }
+
     </script>
 </head>
 
 <body>
+<div class="house"><i class="fa-solid fa-house"></i></div>
 <div class="mytitle">
-    <h1>내 생애 최고의 영화들</h1>
-    <button onclick="open_box()">영화 기록하기</button>
+    <img class="title_img animate__animated animate__bounce animate__repeat-3" src="https://cdn.newspenguin.com/news/photo/202301/13288_40946_4931.jpg" />
+    <h1>코코넛의 맛집 추천 -춘천편-</h1>
+    <button onclick="open_box()">맛집 기록하기</button>
 </div>
 <div class="mypost" id="post-box">
     <div class="form-floating mb-3">
         <input id="url" type="email" class="form-control" placeholder="name@example.com">
-        <label>영화URL</label>
+        <label >맛집 URL (카카오맵을 사용해 주세요) </label>
     </div>
 
+
+
     <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">별점</label>
+        <label class="input-group-text" for="inputGroupSelect01">접근성</label>
         <select class="form-select" id="star">
-            <option selected>-- 선택하기 --</option>
+            <option selected>-- 별점으로 표시! --</option>
             <option value="1">⭐</option>
             <option value="2">⭐⭐</option>
             <option value="3">⭐⭐⭐</option>
@@ -181,12 +221,12 @@
 
     <div class="form-floating">
         <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
-        <label for="floatingTextarea2">코멘트</label>
+        <label for="floatingTextarea2">한 줄 평가</label>
     </div>
 
     <div class="form-floating">
         <textarea id="hashtags" class="form-control" placeholder="해쉬태그로 맛집을 소개해보세요! \n #을 붙여주세요"></textarea>
-        <label for="floatingTextarea2">해쉬태그</label>
+        <label for="floatingTextarea2">해시태그</label>
     </div>
 
     <div class="mybtns">
