@@ -26,7 +26,7 @@ def movie_post():
 
     ogtitle = soup.select_one('meta[property="og:title"]')['content']
     oglocation = soup.select_one('meta[property="og:description"]')['content']
-    ogimage = soup.select_one('meta[property="og:image"]')['content']
+    ogimage = soup.select_one('span.bg_present') #이거 여쭤보기!!!
     ogurl = soup.select_one('meta[property="og:url"]')['content']
 
     doc = {
