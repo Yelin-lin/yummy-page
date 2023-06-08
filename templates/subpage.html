@@ -18,7 +18,7 @@
 
     <!-- 링크 추가됨 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/14d1b273ff.js" crossorigin="anonymous"></script>
 
     <style>
         * {
@@ -64,7 +64,7 @@
             font-weight: 700;
         }
 
-        .mycomment {
+        .myhashtags {
             color: gray;
         }
 
@@ -111,13 +111,14 @@
         }
 
         .house{
-            width: 20px;
-            height: 20px;
-            background-color: white;
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 30px;
+            left: 20px;
             z-index: 78;
+        }
+
+        .card-url{
+            color: blue;
         }
 
         
@@ -149,7 +150,7 @@
                                                     <div class="card-body">
                                                         <h5 class="card-title">${title}</h5>
                                                         <p class="card-location">${location}</p>
-                                                        <p class="card-url">${url}</p>
+                                                        <p class="card-url" onclick="window.open('${url}')" style='cursor:pointer;font-weight:700;'>${url}</p>
                                                         <p>${star_repeat}</p>
                                                         <p class="mycomment">${comment}</p>
                                                         <p class="myhashtags">${hashtag}</p>
@@ -194,7 +195,7 @@
 </head>
 
 <body>
-<div class="house"><i class="fa-solid fa-house"></i></div>
+<div class="house"><i class="fa-solid fa-house fa-2x" onclick="window.open('/')" style="color: #ffffff; cursor:pointer;"></i></div>
 <div class="mytitle">
     <img class="title_img animate__animated animate__bounce animate__repeat-3" src="https://cdn.newspenguin.com/news/photo/202301/13288_40946_4931.jpg" />
     <h1>코코넛의 맛집 추천 -춘천편-</h1>
@@ -250,7 +251,7 @@
                     <h5 class="card-title">영화 제목이 들어갑니다</h5>
                     <p class="card-location">여기에 위치</p>
                     <p>⭐⭐⭐</p>
-                    <p class="card-url">여기에 url</p>
+                    <p class="card-url" onclick="window.open('')" style='cursor:pointer';>여기에 url</p>
                     <p class="mycomment">한줄평 들어감</p>
                     <p class="myhashtags">여기에 해쉬태그 들어감</p>
                 </div>
