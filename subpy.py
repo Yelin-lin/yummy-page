@@ -26,17 +26,17 @@ def yelin():
 def taejun():
     return render_template('taejun.html')
 # 명빈
-@app.route('/myungbin')
-def myungbin():
-    return render_template('myungbin.html')
+@app.route('/myeongbin')
+def myeongbin():
+    return render_template('myeongbin.html')
 # 지아
 @app.route('/jia')
 def jia():
     return render_template('jia.html')
 # 소연
-@app.route('/soyeon1')
+@app.route('/soyeon')
 def soyeon1():
-    return render_template('soyeon1.html')
+    return render_template('soyeon.html')
 
 @app.route('/rec')
 def rec_html():
@@ -145,7 +145,7 @@ def movie_get2():
 # #명빈 route
 
 
-@app.route("/myeongbin", methods=["POST"])
+@app.route("/myeongbin2", methods=["POST"])
 def movie_post3():
     url_receive = request.form['url_give']
     comment_receive = request.form['comment_give']
@@ -176,14 +176,14 @@ def movie_post3():
 
     return jsonify({'msg':'저장완료!'})
 
-@app.route("/myeongbin", methods=["GET"])
+@app.route("/myeongbin2", methods=["GET"])
 def movie_get3():
     all_myeongbinyummy = list(db.myeongbinyummy.find({},{'_id':False}))
     return jsonify({'result':all_myeongbinyummy})
 
 #지아 route
 
-@app.route("/jia", methods=["POST"])
+@app.route("/jia2", methods=["POST"])
 def movie_post4():
     url_receive = request.form['url_give']
     comment_receive = request.form['comment_give']
@@ -214,14 +214,14 @@ def movie_post4():
 
     return jsonify({'msg':'저장완료!'})
 
-@app.route("/jia", methods=["GET"])
+@app.route("/jia2", methods=["GET"])
 def movie_get4():
     all_jia = list(db.jiayummy.find({},{'_id':False}))
     return jsonify({'result':all_jia})
 
 #소연 route
 
-@app.route("/soyeon", methods=["POST"])
+@app.route("/soyeon2", methods=["POST"])
 def movie_post5():
     url_receive = request.form['url_give']
     comment_receive = request.form['comment_give']
@@ -252,7 +252,7 @@ def movie_post5():
 
     return jsonify({'msg':'저장완료!'})
 
-@app.route("/soyeon", methods=["GET"])
+@app.route("/soyeon2", methods=["GET"])
 def movie_get5():
     all_Leesupia = list(db.Leesupiayummy.find({},{'_id':False}))
     return jsonify({'result':all_Leesupia})

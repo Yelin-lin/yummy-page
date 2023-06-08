@@ -116,7 +116,7 @@
         });
 
         function listing() {
-            fetch('/myeongbin').then((res) => res.json()).then((data) => {
+            fetch('/myeongbin2').then((res) => res.json()).then((data) => {
                 let rows = data['result']
                 $('#cards-box').empty();
                 rows.forEach((a) => {
@@ -165,7 +165,7 @@
             formData.append("hashtags_give", hashtags);
             formData.append("imgurl_give", img_url);
 
-            fetch('/myeongbin', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+            fetch('/myeongbin2', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
                 alert(data['msg'])
                 window.location.reload()
             })
