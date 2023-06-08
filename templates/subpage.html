@@ -168,12 +168,14 @@
             let comment = $('#comment').val();
             let star = $('#star').val();
             let hashtags = $('#hashtags').val();
+            let img_url = $('#img_url').val();
 
 			let formData = new FormData();
             formData.append("url_give", url);
             formData.append("comment_give", comment);
             formData.append("star_give", star);
             formData.append("hashtags_give", hashtags);
+            formData.append("imgurl_give", img_url);
 
             fetch('/goodplace', {method : "POST",body : formData}).then((res) => res.json()).then((data) => {
             alert(data['msg'])
@@ -202,6 +204,10 @@
     <div class="form-floating mb-3">
         <input id="url" type="email" class="form-control" placeholder="name@example.com">
         <label >맛집 URL (카카오맵을 사용해 주세요) </label>
+    </div>
+    <div class="form-floating mb-3">
+        <input id="img_url" type="email" class="form-control" placeholder="name@example.com">
+        <label >맛집 이미지 URL</label>
     </div>
 
 

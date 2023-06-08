@@ -18,6 +18,7 @@ def movie_post():
     comment_receive = request.form['comment_give']
     star_receive = request.form['star_give']
     hashtags_receive = request.form['hashtags_give']
+    imgurl_receive = request.form['imgurl_give']
 
     headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
     data = requests.get(url_receive, headers=headers)
@@ -26,15 +27,12 @@ def movie_post():
 
     ogtitle = soup.select_one('meta[property="og:title"]')['content']
     oglocation = soup.select_one('meta[property="og:description"]')['content']
-    ogimage = soup.select_one('#mArticle > div.cont_essential > div:nth-child(1) > div.details_present > a > span.bg_present') #이거 여쭤보기!!! ['style'][22:-2]
     ogurl = soup.select_one('meta[property="og:url"]')['content']
-
-    print(ogimage)
 
     doc = {
         'title':ogtitle,
         'location':oglocation,
-        'image':ogimage,
+        'image':imgurl_receive,
         'url': ogurl,
         'comment': comment_receive,
         'star':star_receive,
