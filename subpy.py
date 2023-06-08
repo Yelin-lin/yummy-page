@@ -43,9 +43,8 @@ def guestbook_get():
     all_comment = list(db.fan.find({}, {'_id': False}))
     return jsonify({'result': all_comment})
 
-
-if __name__ == '__main__':
-    app.run('0.0.0.0', port=5001, debug=True)
+# if __name__ == '__main__':
+#     app.run('0.0.0.0', port=5001, debug=True)
 
 #예린 route
 
